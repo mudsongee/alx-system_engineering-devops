@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-echo "Script executed from: ${PWD}"
+echo "${PWD}"
