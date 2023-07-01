@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# This script is loops 1 to 10 times using while loop, if, elif and else statements
+
+count=1
+
+while [ $count -le 10 ]
+do
+    if [ $count -eq 4 ]; then
+        echo "Bad Luck"
+    elif [ $count -eq 8 ]; then
+        echo "Good Luck"
+    else
+        echo "Best School"
+    fi
+
+    count=$((count+1))
+done

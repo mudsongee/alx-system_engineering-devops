@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# This script is displaying numbers from 1 to 20 using while loop and case statement
+
+count=1
+
+while [ $count -le 20 ]
+do
+    case $count in
+        4)
+            echo "4"
+            echo "Bad luck from China"
+            ;;
+        9)
+            echo "9"
+            echo "Bad luck from Japan"
+            ;;
+        17)
+            echo "17"
+            echo "Bad luck from Italy"
+            ;;
+        *)
+            echo $count
+            ;;
+    esac
+
+    count=$((count+1))
+done
