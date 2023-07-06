@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#listens
+nc -l localhost 98
+
