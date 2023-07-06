@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
-#shows attached IPS
+# displays all active IPv4 IPs on the machine it’s executed on
+
 ip a | grep "scope" | grep -Po '(?<=inet )[\d.]+'
 
