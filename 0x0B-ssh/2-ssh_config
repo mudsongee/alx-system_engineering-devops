@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# ssh Client configuartion file
+
+#ssh config
+ForwardAgent yes
+IdentityFile ~/.ssh/school
+PasswordAuthentication no
