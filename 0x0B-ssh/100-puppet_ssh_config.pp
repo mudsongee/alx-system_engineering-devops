@@ -1,12 +1,16 @@
-#!/usr/bin/env bash
-#using Puppet to make changes to our configuration file
+#using puppet for SSH client configuration
+include stdlib
 
-file { 'etc/ssh/ssh_config':
-	ensure => present,
-	content => "
-	
-		#SSH client configuration
-		Host *
-		IdentityFile ~/.ssh/school
-		PasswordAuthentication no",
-	}
+file_line {'Ssh private key file config':
+  eensure => present,
+  path    => '/etc/ssh/ssh_config',
+  line    => '    PasswordAuthentication no',
+  replace => true,
+}
+
+file_line {'Delare identity file':
+  ensure  => present,
+  path    => '/etc/ssh/ssh_config',
+  line    => '     IdentityFile ~/.ssh/school',
+  replace => true,
+}
