@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Install nginx on your web server
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+# Firewall access control 
+
+sudo ufw 'Nginx'
+#return a page that contains the string Hello World!
+
+echo "Hello World!" | sudo tee /var/www/html/index.html
+#Check script for error 
+
+sudo nginx -t
+#restart nginx services
+
+sudo service nginx restart
