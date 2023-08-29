@@ -4,9 +4,6 @@
 sudo apt-get -y update
 sudo apt-get -y install nginx
 
-# Firewall access control 
-sudo ufw 'Nginx'
-
 #ensure nginx is started 
 sudo service nginx start
 
