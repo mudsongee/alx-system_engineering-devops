@@ -11,9 +11,9 @@ file_line {'install':
     line   => 'rewrite ^\/redirect_me https://youtube.com/watch?v=QH2-TGUlwu4 permanent;',
 }
 
-file {'/var/www/html/redirect_me':
+file {'/var/www/html/index.html':
     ensure  => 'file',
-    content => '',
+    content => 'Hello World!',
 }
 
 service {'nginx':
