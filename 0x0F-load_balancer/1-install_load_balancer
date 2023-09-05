@@ -1,28 +1,28 @@
-#!/bin/bash
+#!/usr/bin/env bash
+#sets up load balancers
 
 # Install HAProxy
 sudo apt-get update
-sudo apt-get install -y haproxy
+sudo apt-get install -y haproxy=1.5\*
+
+file=/etc/haproxy/haproxy.cfg
 
 # Configure HAProxy
-cat <<EOL | sudo tee -a /etc/haproxy/haproxy.cfg
-frontend haproxynode
-	bind *:80
-	mode http
-	default_backend servers
+sudo echo -e "frontend haproxynode
+	\tbind *:80
+	\tmode http
+	\tdefault_backend servers" | sudo tee -a $file
 
-backend servers
-	mode http
-	balance roundrobin
-	option forwardfor
-	http-request set-header X-Forwarded-Port %[dst_port]
-	server 79001-web-01 54.87.181.20:80 check
-	server 79001-web-02 18.234.129.115:80 check
-EOL
+sudo echo -e "backend servers
+	\tmode http
+	\tbalance roundrobin
+	\toption forwardfor
+	\thttp-request set-header X-Forwarded-Port %[dst_port]
+	\tserver 79001-web-01 54.87.181.20:80 check
+	\tserver 79001-web-02 18.234.129.115:80 check" | sudo tee -a $file
 
 # Restart HAProxy service
 sudo systemctl restart haproxy.service
 
 # Enable HAProxy service to start at boot time
 sudo systemctl enable haproxy.service
-
