@@ -26,4 +26,4 @@ sudo service haproxy restart
 #sudo systemctl restart haproxy.service
 
 # Enable HAProxy service to start at boot time
-sudo systemctl enable haproxy.service
+#sudo systemctl enable haproxy.service
