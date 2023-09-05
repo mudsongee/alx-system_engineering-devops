@@ -2,20 +2,23 @@
 
 # Install HAProxy
 sudo apt-get update
-sudo apt-get install haproxy -y
+sudo apt-get install -y haproxy
 
 # Configure HAProxy
-sudo sed -i 's/ENABLED=0/ENABLED=1/' /etc/default/haproxy
-sudo tee /etc/haproxy/haproxy.cfg > /dev/null <<EOF
-frontend http-in
-    bind *:80
-    default_backend servers
+cat <<EOL | sudo tee -a /etc/haproxy/haproxy.cfg
+frontend haproxynode
+	bind *:80
+	mode http
+	default_backend servers
 
 backend servers
-    balance roundrobin
-    server 79001-web-01 54.87.181.20:80 check
-    server 79001-web-02 18.234.129.115:80 check
-EOF
+	mode http
+	balance roundrobin
+	option forwardfor
+	http-request set-header X-Forwarded-Port %[dst_port]
+	server 79001-web-01 54.87.181.20:80 check
+	server 79001-web-02 18.234.129.115:80 check
+EOL
 
 # Restart HAProxy service
 sudo systemctl restart haproxy.service
