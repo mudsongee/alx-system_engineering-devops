@@ -22,7 +22,8 @@ sudo echo -e "backend servers
 	\tserver 79001-web-02 18.234.129.115:80 check" | sudo tee -a $file
 
 # Restart HAProxy service
-sudo systemctl restart haproxy.service
+sudo service haproxy restart
+#sudo systemctl restart haproxy.service
 
 # Enable HAProxy service to start at boot time
 sudo systemctl enable haproxy.service
