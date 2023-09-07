@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # Replace port 8080 with 80 in Nginx configuration
 sed -i 's/8080 default/80 default/' /etc/nginx/sites-enabled/default
-# Restart Nginx and kill one Nginx process
-sudo service nginx restart && pkill -o nginx
+sudo service nginx restart
+pkill -o nginx
