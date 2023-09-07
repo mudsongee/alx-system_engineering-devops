@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#debugging made short
-sed -i 's/8080 default/80 default/' /etc/nginx/sites-enabled/default
-sudo service nginx restart
-pkill -o nginx
+# Fixes the nginx listening port and reloads the nginx master process
+echo -e "sed -iE 's/listen 8080/listen 80/g' /etc/nginx/sites-enabled/default\
+sed -i 's/listen \[::\]:8080/listen \[::\]:80/g' /etc/nginx/sites-enabled/default\n
+pgrep nginx -o > /run/nginx.pid\nnginx -s reload\necho''> /run/nginx.pid" | bash
