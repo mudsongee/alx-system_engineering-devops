@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #prevent an attacker from logging in as root
 pkill apache
-sed -i 's/80 default_server/8080 default_server/' /etc/nginx/sites-available/default
+sed -i 's/80 default_server/8080 default_server/' /etc/nginx/sites-enabled/default
 chmod -R 0644 /etc/nginx/
 sudo -u nginx service nginx start
 
