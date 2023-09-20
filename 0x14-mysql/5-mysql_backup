@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Check if the MySQL password argument is provided
 if [ $# -ne 1 ]; then
