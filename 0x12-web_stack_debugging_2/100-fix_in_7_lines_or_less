@@ -4,3 +4,4 @@ pkill apache
 sed -i 's/80 default_server/8080 default_server/' /etc/nginx/sites-enabled/default
 chmod -R 0644 /etc/nginx/
 sudo -u nginx service nginx start
+
