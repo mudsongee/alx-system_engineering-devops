@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""gets api"""
+"""
+gets api
+"""
+
 import requests
 from sys import argv
 
@@ -22,4 +25,3 @@ def todo(userid):
 if __name__ == "__main__":
     if len(argv) == 2:
         todo(int(argv[1]))
-
