@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-# csv exported
+"""
+csv exported
+"""
+
 import json
 from requests import get
 from sys import argv
@@ -21,4 +24,3 @@ def jsonWrite(user):
 
 if __name__ == "__main__":
     jsonWrite(int(argv[1]))
-
