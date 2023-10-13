@@ -6,7 +6,6 @@ Module for task 2
 
 import requests
 
-
 def recurse(subreddit, hot_list=[], count=0, after=None):
     """Queries the Reddit API and returns all hot posts
     of the subreddit"""
