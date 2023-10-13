@@ -4,7 +4,6 @@ Module for task 2
 """
 
 
-
 import requests
 
 
