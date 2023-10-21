@@ -15,4 +15,3 @@ SyslogIdentifier = gunicorn
 
 [Install]
 WantedBy=multi-user.target
-
