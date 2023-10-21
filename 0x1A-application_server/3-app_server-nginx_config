@@ -1,7 +1,5 @@
 # Serve a page with Nginx
 
-# Serve a page with Nginx
-
 server {
     # Listen on port 80
     listen      80 default_server;
